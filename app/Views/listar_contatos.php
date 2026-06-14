@@ -8,8 +8,6 @@
 </head>
 <body>
 
-<!-- A View foca 100% no visual. Ela não faz nenhuma consulta SQL; ela apenas recebe os dados prontos do Controller e os exibe usando HTML puro e estruturas de repetição simples. -->
-
 <div class="container">
     <h1>Agenda de Contatos</h1>
 
@@ -28,10 +26,10 @@
         <tbody>
         <?php foreach ($contatos as $c): ?>
             <tr>
-                <td><?= htmlspecialchars($c['id']) ?></td>
-                <td><?= htmlspecialchars($c['nome']) ?></td>
-                <td><?= htmlspecialchars($c['telefone']) ?></td>
-                <td><?= htmlspecialchars($c['email']) ?></td>
+                <td><?= $c->id ?></td>
+                <td><?= htmlspecialchars($c->nome) ?></td>
+                <td><?= htmlspecialchars($c->telefone) ?></td>
+                <td><?= htmlspecialchars($c->email) ?></td>
                 <td>
                     <a href="editar.php?id=<?= $c['id'] ?>" class="botao-destaque link-externo">Editar</a>
                     <a href="deletar.php?id=<?= $c['id'] ?>" class="botao-destaque link-externo" onclick="return confirm('Deseja excluir este contato?')">Excluir</a>

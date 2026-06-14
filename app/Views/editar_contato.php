@@ -14,13 +14,13 @@
 
     <form method="POST">
         <label for="nome">Nome:</label>
-        <input type="text" name="nome" id="nome" value="<?= htmlspecialchars($contato['nome']) ?>" required>
+        <input type="text" name="nome" id="nome" value="<?= htmlspecialchars($c->nome) ?>" required>
         <br>
         <label for="telefone">Telefone:</label>
-        <input type="text" name="telefone" id="telefone" value="<?= htmlspecialchars($contato['telefone']) ?>" placeholder="(XX)9XXXX-XXXX" pattern="\(\d{2}\)\d{5}-\d{4}" required>
+        <input type="text" name="telefone" id="telefone" value="<?= htmlspecialchars($c->telefone) ?>" placeholder="(XX)9XXXX-XXXX" pattern="\(\d{2}\)\d{5}-\d{4}" required>
         <br>
         <label for="email">Email:</label>
-        <input type="email" name="email" id="email" value="<?= htmlspecialchars($contato['email']) ?>" required>
+        <input type="email" name="email" id="email" value="<?= htmlspecialchars($c->email) ?>" required>
         <br>
         <button class="botao-destaque link-externo" type="submit">Atualizar</button>
     </form>
