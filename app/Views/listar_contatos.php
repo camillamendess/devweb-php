@@ -10,7 +10,7 @@
 
 <div class="container">
     <h1>Agenda de Contatos</h1>
-
+    <a href="logout.php" style="color: red; float: right;">Sair do Sistema</a>
     <a href="criar.php" class="botao-destaque link-externo">Novo Contato</a>
 
     <table>

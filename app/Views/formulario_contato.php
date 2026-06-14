@@ -14,13 +14,13 @@
 
     <form method="POST">
         <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required>
+        <input type="text" id="nome" name="nome" aria-required="true" required>
         <br>
         <label for="telefone">Telefone:</label>
-        <input type="tel" id="telefone" name="telefone" placeholder="(XX)9XXXX-XXXX" pattern="\(\d{2}\)\d{5}-\d{4}" required>
+        <input type="tel" id="telefone" name="telefone" aria-required="true" placeholder="(XX)9XXXX-XXXX" pattern="\(\d{2}\)\d{5}-\d{4}" required>
         <br>
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" aria-required="true" required>
         <br>
         <button class="botao-destaque link-externo" type="submit">Salvar</button>
     </form>

@@ -5,6 +5,18 @@ require_once __DIR__ . '/../DAO/ContatoDAO.php';
 require_once __DIR__ . '/../Models/Contato.php';
 
 class ContatoController {
+
+    public function __construct() {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        
+        // Se não houver a variável de sessão, manda direto para a tela de login
+        if (!isset($_SESSION['usuario_id'])) {
+            header("Location: login.php");
+            exit;
+        }
+    }
     
     public function index() {
         global $pdo;
