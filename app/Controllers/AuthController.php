@@ -40,7 +40,7 @@ class AuthController {
         exit;
     }
 
-    //  Trata a exibição e o envio do registo de novos utilizadores
+    //  Trata a exibição e o envio do registro de novos utilizadores
     public function cadastrar() {
         global $pdo;
         $erro = null;
@@ -59,7 +59,7 @@ class AuthController {
             } elseif (strlen($senha) < 6) {
                 $erro = "A senha deve ter pelo menos 6 caracteres!";
             } elseif ($usuarioDAO->buscarPorEmail($email) !== null) {
-                $erro = "Este e-mail já está registado!";
+                $erro = "Este e-mail já está registrado!";
             } else {
                 // SEgurança: Gera o hash criptografado perfeito (bcrypt)
                 $senha_criptografada = password_hash($senha, PASSWORD_BCRYPT);
@@ -67,7 +67,7 @@ class AuthController {
                 $novoUsuario = new Usuario(null, $email, $senha_criptografada);
                 $usuarioDAO->salvar($novoUsuario);
 
-                $sucesso = "Utilizador registado com sucesso! Já pode fazer login.";
+                $sucesso = "Usuário registrado com sucesso! Já pode fazer login.";
             }
         }
 

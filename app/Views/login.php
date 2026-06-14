@@ -9,22 +9,29 @@
 <body>
 
 <div class="container">
-    <h1>Login Restrito</h1>
-
-    <?php if (!empty($erro)): ?>
-        <p style="color: red;" aria-live="assertive"><?= htmlspecialchars($erro) ?></p>
-    <?php endif; ?>
-
-    <form method="POST">
-        <label for="email">E-mail Cadastrado:</label>
-        <input type="email" id="email" name="email" required aria-required="true">
-        <br><br>
+    
+    <div class="container-alertas">
+        <?php if (!empty($erro)): ?>
+            <div class="alerta alerta-erro" role="alert" aria-live="assertive">
+                <div class="alerta-conteudo">
+                    <strong>Erro ao entrar:</strong> <?= htmlspecialchars($erro) ?>
+                </div>
+            </div>
+        <?php endif; ?>
+    </div>
         
-        <label for="senha">Sua Senha:</label>
-        <input type="password" id="senha" name="senha" required aria-required="true">
-        <br><br>
-
+    <form method="POST" class="formulario-login" aria-label="Formulário de Login">
+        <h1 id="login-title">Login</h1>
+        <div class="campo-formulario">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required aria-required="true">
+        </div>
+        <div class="campo-formulario">
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="senha" required aria-required="true">
+        </div>
         <button class="botao-destaque" type="submit">Entrar na Agenda</button>
+        <p>Não tem uma conta? <a href="/cadastrar.php">Cadastre-se aqui</a>.</p>
     </form>
 </div>
 
