@@ -140,13 +140,17 @@ table {
   border-collapse: collapse;
   margin-top: 15px;
   background: #fff;
+  table-layout: fixed;
 }
 
 table th,
 table td {
-  padding: 12px;
+  padding: 14px;
   border-bottom: 1px solid #ddd;
   text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 table th {
@@ -157,3 +161,16 @@ table th {
 table tr:hover {
   background-color: #f1f1f1;
 }
+
+table th:nth-child(1) {
+  width: 31%;
+} /* Coluna Nome (Super espaçada) */
+table th:nth-child(2) {
+  width: 22%;
+} /* Coluna Telefone */
+table th:nth-child(3) {
+  width: 25%;
+} /* Coluna Email (Bem distribuída) */
+table th:nth-child(4) {
+  width: 22%;
+} /* Coluna Ações (Espaço perfeito para Editar e Excluir lado a lado) */

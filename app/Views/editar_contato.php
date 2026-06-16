@@ -14,11 +14,14 @@
 
     <form method="POST">
         <label for="nome">Nome:</label>
-        <input type="text" name="nome" id="nome" aria-required="true" value="<?= htmlspecialchars($c->nome) ?>" required>
+        <input type="text" name="nome" id="nome" aria-required="true" value="<?= htmlspecialchars($contato->nome ?? '') ?>" required>
+        
         <label for="telefone">Telefone:</label>
-        <input type="text" name="telefone" id="telefone" aria-required="true" value="<?= htmlspecialchars($c->telefone) ?>" placeholder="(XX)9XXXX-XXXX" pattern="\(\d{2}\)\d{5}-\d{4}" required>
+        <input type="text" name="telefone" id="telefone" aria-required="true" value="<?= htmlspecialchars($contato->telefone ?? '') ?>" placeholder="(XX)9XXXX-XXXX" pattern="\(\d{2}\)\d{5}-\d{4}" required>
+        
         <label for="email">Email:</label>
-        <input type="email" name="email" id="email" aria-required="true" value="<?= htmlspecialchars($c->email) ?>" required>
+        <input type="email" name="email" id="email" aria-required="true" value="<?= htmlspecialchars($contato->email ?? '') ?>" required>
+        
         <button class="botao-destaque link-externo" type="submit">Atualizar</button>
     </form>
 

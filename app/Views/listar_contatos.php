@@ -9,14 +9,13 @@
 <body>
 
 <div class="container">
-    <h1>Agenda de Contatos</h1>
+    <h1 style="text-align: center;">Agenda de Contatos</h1>
     <a href="logout.php" style="color: red; float: right;">Sair do Sistema</a>
     <a href="criar.php" class="botao-destaque link-externo">Novo Contato</a>
 
     <table>
         <thead>
             <tr>
-                <th>ID</th>
                 <th>Nome</th>
                 <th>Telefone</th>
                 <th>Email</th>
@@ -26,13 +25,12 @@
         <tbody>
         <?php foreach ($contatos as $c): ?>
             <tr>
-                <td><?= $c->id ?></td>
                 <td><?= htmlspecialchars($c->nome) ?></td>
                 <td><?= htmlspecialchars($c->telefone) ?></td>
                 <td><?= htmlspecialchars($c->email) ?></td>
                 <td>
-                    <a href="editar.php?id=<?= $c['id'] ?>" class="botao-destaque link-externo">Editar</a>
-                    <a href="deletar.php?id=<?= $c['id'] ?>" class="botao-destaque link-externo" onclick="return confirm('Deseja excluir este contato?')">Excluir</a>
+                    <a href="editar.php?id=<?= $c->id ?>" class="botao-destaque link-externo">Editar</a>
+                    <a href="deletar.php?id=<?= $c->id ?>" class="botao-destaque link-externo" onclick="return confirm('Deseja excluir este contato?')">Excluir</a>
                 </td>
             </tr>
         <?php endforeach; ?>

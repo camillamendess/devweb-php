@@ -8,10 +8,11 @@ class Contato {
     public $email;
 
     // Construtor opcional para facilitar a criação do objeto
-    public function __construct($id = null, $nome = null, $telefone = null, $email = null) {
+    public function __construct($id = null, $nome = null, $telefone = null, $email = null, $usuario_id = null) {
         $this->id = $id;
         $this->nome = $nome;
         $this->telefone = $telefone;
         $this->email = $email;
+        $this->usuario_id = $usuario_id;
     }
 }
