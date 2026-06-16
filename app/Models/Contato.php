@@ -6,6 +6,7 @@ class Contato {
     public $nome;
     public $telefone;
     public $email;
+    public $usuario_id; 
 
     // Construtor opcional para facilitar a criação do objeto
     public function __construct($id = null, $nome = null, $telefone = null, $email = null, $usuario_id = null) {
