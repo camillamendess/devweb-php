@@ -1,5 +1,5 @@
 <?php
-
+// Model Usuario - representa um usuário do sistema
 class Usuario {
     public $id;
     public $email;

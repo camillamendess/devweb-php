@@ -3,11 +3,12 @@
 require_once __DIR__ . '/../db.php';
 require_once __DIR__ . '/../DAO/ContatoDAO.php';
 require_once __DIR__ . '/../Models/Contato.php';
-
+// Controller Contato - responsável por lidar com as requisições relacionadas a contatos, interagindo com o ContatoDAO e as views correspondentes
 class ContatoController {
-
+    // Atributo para armazenar o ID do usuário logado, garantindo que as operações sejam feitas apenas nos contatos pertencentes a ele
     private $idLogado;
 
+    // Construtor para verificar se o usuário está logado e armazenar seu ID, redirecionando para a página de login caso contrário
     public function __construct() {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
@@ -21,6 +22,7 @@ class ContatoController {
         $this->idLogado = $_SESSION['usuario_id'];
     }
     
+    // Função para listar todos os contatos do usuário logado
     public function index() {
         global $pdo;
         $contatoDAO = new ContatoDAO($pdo);
@@ -28,6 +30,7 @@ class ContatoController {
         require_once __DIR__ . '/../Views/listar_contatos.php';
     }
 
+    // Função para cadastra um novo contato na agenda do usuário logado
     public function criar() {
         global $pdo;
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -42,6 +45,7 @@ class ContatoController {
         require_once __DIR__ . '/../Views/formulario_contato.php';
     }
 
+    // Função que edita um contato da agenda do usuario logado
     public function editar() {
         global $pdo;
         $id = $_GET['id'] ?? null;
@@ -63,6 +67,7 @@ class ContatoController {
         require_once __DIR__ . '/../Views/editar_contato.php';
     }
 
+    // Funcão que deleta um contato da agenda do usuario logado
     public function deletar() {
         global $pdo;
         $id = $_GET['id'] ?? null;

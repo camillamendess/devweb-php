@@ -1,3 +1,4 @@
+/* Reset global: remove margens, paddings e padroniza o box model em todos os elementos */
 * {
   margin: 0;
   padding: 0;
@@ -5,12 +6,14 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Estilo base do body: define cor de fundo, cor do texto e espaçamento entre linhas */
 body {
   background-color: #f4f6f9;
   color: #333;
   line-height: 1.6;
 }
 
+/* Container principal: centraliza o conteúdo, limita a largura e aplica sombra e borda arredondada */
 .container {
   width: 90%;
   max-width: 1000px;
@@ -22,6 +25,7 @@ body {
   font-size: 14px;
 }
 
+/* Títulos: define margem inferior e cor padrão para h1, h2 e h3 */
 h1,
 h2,
 h3 {
@@ -29,6 +33,7 @@ h3 {
   color: #2c3e50;
 }
 
+/* Botão de destaque: estilo base com fundo azul, texto branco e borda sólida */
 .botao-destaque {
   background-color: blue;
   color: white;
@@ -37,10 +42,14 @@ h3 {
   border: solid;
 }
 
+/* Modificador de link externo: aplica negrito aos botões com essa classe */
 .link-externo {
   font-weight: bold;
 }
 
+/* Formulários */
+
+/* Formulário de login: centraliza os campos verticalmente na tela */
 .formulario-login {
   display: flex;
   flex-direction: column;
@@ -48,6 +57,7 @@ h3 {
   align-items: center;
 }
 
+/* Campo individual do formulário: largura fixa e alinhamento à esquerda */
 .campo-formulario {
   width: 340px;
   display: flex;
@@ -55,10 +65,44 @@ h3 {
   justify-content: flex-start;
 }
 
+/* Título do login: remove margem padrão para melhor alinhamento com o formulário */
 #login-title {
   margin: 0;
 }
 
+/* Formulário genérico: empilha os campos com espaçamento uniforme entre eles */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Label: negrito para destacar os rótulos dos campos */
+label {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+/* Inputs de texto, e-mail, telefone e senha: padding generoso, borda suave e largura fixa */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"] {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 340px;
+}
+
+/* Estado de foco dos inputs: destaca o campo ativo com borda azul e remove o outline padrão */
+input:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+/* Alertas */
+
+/* Container de alertas: espaçamento inferior e largura total para separar dos demais elementos */
 .container-alertas {
   margin-bottom: 20px;
   width: 100%;
@@ -79,18 +123,20 @@ h3 {
   line-height: 1.5;
   animation: deslizarParaBaixo 0.3s ease-out; /* Efeito de entrada */
 }
+
+/* Conteúdo do alerta: ocupa o espaço restante ao lado de ícones ou outros elementos */
 .alerta-conteudo {
   flex-grow: 1;
 }
 
-/* 🟥 Estilo chamativo de ERRO */
+/* Alerta de erro: fundo vermelho claro com borda esquerda vermelha intensa */
 .alerta-erro {
   background-color: #fde8e8;
   color: #9b1c1c;
   border-left: 6px solid #e11d48;
 }
 
-/* 🟩 Estilo chamativo de SUCESSO */
+/* Alerta de sucesso: fundo verde claro com borda esquerda verde intensa */
 .alerta-sucesso {
   background-color: #edf7ed;
   color: #1e4620;
@@ -109,32 +155,9 @@ h3 {
   }
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
+/* Tabela de contatos */
 
-label {
-  font-weight: bold;
-  margin-bottom: 4px;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="password"] {
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  width: 340px;
-}
-
-input:focus {
-  border-color: #3498db;
-  outline: none;
-}
-
+/* Tabela: largura total, sem espaço entre bordas e layout fixo para controle das colunas */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -143,6 +166,7 @@ table {
   table-layout: fixed;
 }
 
+/* Células da tabela: padding, borda inferior, alinhamento à esquerda e truncamento de texto longo */
 table th,
 table td {
   padding: 14px;
@@ -153,24 +177,27 @@ table td {
   white-space: nowrap;
 }
 
+/* Cabeçalho da tabela: fundo azul e texto branco para destacar as colunas */
 table th {
   background-color: #3498db;
   color: white;
 }
 
+/* Linha hover: realça a linha ao passar o cursor para facilitar a leitura */
 table tr:hover {
   background-color: #f1f1f1;
 }
 
+/* Larguras fixas por coluna para distribuição proporcional do espaço disponível */
 table th:nth-child(1) {
   width: 31%;
-} /* Coluna Nome (Super espaçada) */
+} /* Coluna Nome */
 table th:nth-child(2) {
   width: 22%;
 } /* Coluna Telefone */
 table th:nth-child(3) {
   width: 25%;
-} /* Coluna Email (Bem distribuída) */
+} /* Coluna Email */
 table th:nth-child(4) {
   width: 22%;
-} /* Coluna Ações (Espaço perfeito para Editar e Excluir lado a lado) */
+} /* Coluna Ações: espaço para Editar e Excluir lado a lado */

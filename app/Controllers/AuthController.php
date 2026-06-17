@@ -2,13 +2,14 @@
 
 require_once __DIR__ . '/../db.php';
 require_once __DIR__ . '/../DAO/UsuarioDAO.php';
-
+// Controller Auth - responsável por lidar com as requisições relacionadas a autenticação, interagindo com o UsuarioDAO e as views correspondentes
 class AuthController {
     
+    // Função que trata o login do usuário, verificando suas credenciais e iniciando a sessão caso sejam válidas
     public function login() {
         global $pdo;
         $erro = null;
-
+    
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = $_POST['email'] ?? '';
             $senha = $_POST['senha'] ?? '';
@@ -33,6 +34,7 @@ class AuthController {
         require_once __DIR__ . '/../Views/login.php';
     }
 
+    // Função que encerra a sessão do usuário logado e o redireciona para a página de login
     public function logout() {
         if (session_status() === PHP_SESSION_NONE) session_start();
         session_destroy();
@@ -40,7 +42,7 @@ class AuthController {
         exit;
     }
 
-    //  Trata a exibição e o envio do registro de novos utilizadores
+    // Função que trata a exibição e o envio do formulário de registro de novos usuários, validando os dados antes de salvá-los
     public function cadastrar() {
         global $pdo;
         $erro = null;
@@ -61,7 +63,7 @@ class AuthController {
             } elseif ($usuarioDAO->buscarPorEmail($email) !== null) {
                 $erro = "Este e-mail já está registrado!";
             } else {
-                // SEgurança: Gera o hash criptografado perfeito (bcrypt)
+
                 $senha_criptografada = password_hash($senha, PASSWORD_BCRYPT);
 
                 $novoUsuario = new Usuario(null, $email, $senha_criptografada);

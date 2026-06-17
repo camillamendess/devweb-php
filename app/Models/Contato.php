@@ -1,6 +1,5 @@
 <?php
-// Ele vira uma classe limpa, usada apenas para carregar e transportar os dados pelo sistema.
-
+// Model Contato - representa um contato que pode ser adicionado à agenda de um usuário
 class Contato {
     public $id;
     public $nome;
@@ -8,7 +7,7 @@ class Contato {
     public $email;
     public $usuario_id; 
 
-    // Construtor opcional para facilitar a criação do objeto
+    // Construtor para facilitar a criação do objeto
     public function __construct($id = null, $nome = null, $telefone = null, $email = null, $usuario_id = null) {
         $this->id = $id;
         $this->nome = $nome;

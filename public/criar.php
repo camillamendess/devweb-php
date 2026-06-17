@@ -1,7 +1,7 @@
 <?php
 
+// Ponto de entrada público para a criação de um novo contato, instancia o ContatoController e chama o método responsável por salvar
 require_once '../app/Controllers/ContatoController.php';
 
-// Dispara o cérebro da criação de contatos
 $controller = new ContatoController();
 $controller->criar();
